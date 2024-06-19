@@ -117,7 +117,7 @@ const proxyMiddleware = (0, http_proxy_middleware_1.createProxyMiddleware)({
             delete proxyRes.headers[key];
         });
     },
-    proxyTimeout: 900 * 10,
+    proxyTimeout: 60 * 1000,
     onError: (err, req, res, target = "") => {
         const targetUrl = typeof target === "object" ? target === null || target === void 0 ? void 0 : target.href : target;
         errorHandler(new Error(`Proxy fail: ${err.message} -> ${targetUrl}`), req, res);
